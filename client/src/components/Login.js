@@ -21,14 +21,14 @@ class Login extends React.Component {
   login = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/login", this.state.credentials)
+      .post("/login", this.state.credentials)
       .then((res) => {
-        console.log(res.data);
+        console.log("This was the POST: ", res.data);
         localStorage.setItem("token", res.data.payload);
         this.props.history.push("/protected");
       })
       .catch((err) => {
-        console.log("There was an error: ", err);
+        console.log("There was a POST error: ", err);
       });
   };
 
