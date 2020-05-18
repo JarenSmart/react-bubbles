@@ -29,11 +29,21 @@ const ColorList = ({ colors, updateColors }) => {
       })
       .catch((err) => {
         console.log("There was a SAVEEDIT error: ", err);
-      });
+      })
+      .finally(window.location.reload());
   };
 
   const deleteColor = (color) => {
     // make a delete request to delete this color
+    axiosWithAuth()
+      .delete(`/colors/${color.id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log("There was an error while trying to delete: ", err);
+      })
+      .finally(window.location.reload());
   };
 
   return (

@@ -19,7 +19,7 @@ const BubblePage = () => {
       .catch((err) => {
         console.log("There was an GET error: ", err);
       });
-  });
+  }, []);
 
   return (
     <>
